@@ -2,7 +2,7 @@
 % !TeX program = xelatex
 % !TeX spellcheck = en_US
 
-\documentclass[degree=doctor]{ustcthesis}
+\documentclass[degree=master,degree-type=professional]{ustcthesis}
 % degree      = doctor | master | bachelor
 % degree-type = academic | professional | engineering
 % language    = chinese | english
@@ -26,11 +26,20 @@
 \listoffiguresandtables
 % \include{chapters/notation}
 
+
 \mainmatter
-\include{chapters/intro}
-\include{chapters/floats}
-\include{chapters/math}
-\include{chapters/citations}
+\include{chapters/Introduction} % 绪论（研究背景（SA和SA评估简介），研究意义，主要工作，组织架构）
+\include{chapters/Research} % 国内外研究现状（sa，sa难点，sa评估方法，测试集，代码生成）
+\include{chapters/Library} % 基础数据集构建（数据组织方法、数据获取方法、动态数据库、实践路线和方法）
+\include{chapters/Factory} % 场景工厂
+\include{chapters/Management} % 场景资产管理和计算
+\include{chapters/Experiments} % 实验
+\include{chapters/citations} % 引用
+
+
+% \include{chapters/background}
+% \include{chapters/floats}
+% \include{chapters/math}
 
 \bibliography{bib/ustc}  % 参考文献使用 BibTeX 编译
 % \printbibliography       % 参考文献使用 BibLaTeX 编译

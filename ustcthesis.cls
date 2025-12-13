@@ -1016,26 +1016,26 @@
 \newcommand\ustc@set@cjk@font@noto{%
   \defaultCJKfontfeatures{}%
   \setCJKmainfont{Noto Serif CJK SC}[
-    UprightFont    = * Light,
+    UprightFont    = *,
     BoldFont       = * Bold,
     ItalicFont     = FandolKai-Regular,
     ItalicFeatures = {Extension = .otf},
     Script         = CJK,
   ]%
   \setCJKsansfont{Noto Sans CJK SC}[
-    BoldFont       = * Medium,
+    BoldFont       = *,
     Script         = CJK,
   ]%
   \setCJKmonofont{Noto Sans Mono CJK SC}[
     Script         = CJK,
   ]%
   \setCJKfamilyfont{zhsong}{Noto Serif CJK SC}[
-    UprightFont    = * Light,
+    UprightFont    = *,
     UprightFont    = * Bold,
     Script         = CJK,
   ]%
   \setCJKfamilyfont{zhhei}{Noto Sans CJK SC}[
-    BoldFont       = * Medium,
+    BoldFont       = *,
     Script         = CJK,
   ]%
   \setCJKfamilyfont{zhfs}{FandolFang}[
