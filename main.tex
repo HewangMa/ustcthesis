@@ -26,14 +26,49 @@
 \listoffiguresandtables
 % \include{chapters/notation}
 
+% 三条铁律（请记住）
+
+% Research 只写“不足”，不写“原理”
+% EvaluageModel 只讲“抽象”，不讲“实现”
+% System / Implementation 永远服务于“评估模型成立”
+
 
 \mainmatter
-\include{chapters/Introduction} % 绪论（研究背景（SA和SA评估简介），研究意义，主要工作，组织架构）
-\include{chapters/Research} % 国内外研究现状（sa，sa难点，sa评估方法，测试集，代码生成）
-\include{chapters/Library} % 基础数据集构建（数据组织方法、数据获取方法、动态数据库、实践路线和方法）
-\include{chapters/Factory} % 场景工厂
-\include{chapters/Management} % 场景资产管理和计算
-\include{chapters/Experiments} % 实验
+\include{chapters/Introduction}
+% 绪论
+%   研究背景
+%       静态分析的应用
+%       评估需求
+%   研究意义
+%   主要工作
+%   组织架构
+\include{chapters/Research}
+% 国内外研究现状
+%   静态分析工具现有评估方式和问题
+%   现有代码生成方法和问题
+\include{chapters/EvaluateModel}
+% 场景化覆盖能力评估问题建模(只讲抽象)
+%   静态分析工具的原理和对应的能力边界
+%   场景空间的结构化建模（正交）
+%   场景驱动评估方法的优势与局限
+\include{chapters/System}
+% 面向场景的评估系统设计（只讲框架）
+%   系统总体架构与评估流程
+%   场景工厂的设计思想与生成约束
+%   场景资产管理与演化机制
+%   评估指标计算与结果解释
+\include{chapters/Implementation}
+% 评估系统实现与关键技术（只讲实现）
+%   场景生成机制实现（RAG + 责任链）
+%   场景去重、分类与管理实现
+%   评估流程自动化实现
+%   系统可扩展性与替换性分析
+\include{chapters/Experiments}
+% 实验与分析
+%   实验设计与评估目标
+%   不同工具规则的表现分析
+%   与传统评估方式的对比
+%   威胁分析与讨论
 \include{chapters/citations} % 引用
 
 
@@ -45,7 +80,7 @@
 % \printbibliography       % 参考文献使用 BibLaTeX 编译
 
 \appendix
-\include{chapters/complementary}
+% \include{chapters/complementary}
 
 \backmatter
 \include{chapters/acknowledgements}
