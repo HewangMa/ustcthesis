@@ -1,28 +1,29 @@
 % !TeX root = ./main.tex
 
 \ustcsetup{
-  title                = {中国科学技术大学\\学位论文模板示例文档 v\ustcthesisversion},
-  title*               = {An example of thesis template for University of Science
-                          and Technology of China v\ustcthesisversion},
-  author               = {李泽平},
-  author*              = {Li Zeping},
-  speciality           = {数学与应用数学},
-  speciality*          = {Mathematics and Applied Mathematics},
-  supervisor           = {XXX~教授, XXX~教授},
-  supervisor*          = {Prof. XXX, Prof. XXX},
-  % practice-supervisor  = {XXX~教授, XXX~教授},  % 专业/工程学位的实践导师
-  % practice-supervisor* = {Prof. XXX, Prof. XXX},
-  % date                 = {2017-05-01},  % 完成时间，默认为今日
-  % department           = {数学科学学院},  % 院系，本科生需要填写
-  % student-id           = {PB11001000},  % 学号，本科生需要填写
-  % secret-level         = {秘密},     % 绝密|机密|秘密|控阅，注释本行则公开
-  % secret-level*        = {Secret},  % Top secret | Highly secret | Secret
-  % secret-year          = {10},      % 保密/控阅期限
-  % reviewer             = true,      % 声明页显示“评审专家签名”
-  %
-  % 数学字体
-  % math-style           = GB,  % 可选：GB, TeX, ISO
-  math-font            = xits,  % 可选：stix, xits, libertinus
+	title                = {面向C/C++静态分析工具的自动化评估系统设计和实现},
+	title*               = {Design and implementation of an automated evaluation system for C/C++ static analysis tools},
+	author               = {马禾旺},
+	author*              = {Ma Hewang},
+	speciality           = {软件工程},
+	speciality*          = {Software Engineering},
+	% supervisor           = {XXX~教授, XXX~教授},
+	supervisor           = {谢兴生~副教授},
+	% supervisor*          = {Prof. XXX, Prof. XXX},
+	supervisor*          = {Prof. Xie Xingsheng},
+	practice-supervisor  = {张甫庆},  % 专业/工程学位的实践导师
+	practice-supervisor* = {Zhang Fuqing},
+	date                 = {2017-05-01},  % 完成时间，默认为今日
+	% department           = {数学科学学院},  % 院系，本科生需要填写
+	% student-id           = {PB11001000},  % 学号，本科生需要填写
+	% secret-level         = {秘密},     % 绝密|机密|秘密|控阅，注释本行则公开
+	% secret-level*        = {Secret},  % Top secret | Highly secret | Secret
+	% secret-year          = {10},      % 保密/控阅期限
+	% reviewer             = true,      % 声明页显示“评审专家签名”
+	%
+	% 数学字体
+	% math-style           = GB,  % 可选：GB, TeX, ISO
+	math-font            = xits,  % 可选：stix, xits, libertinus
 }
 
 
@@ -79,12 +80,12 @@
 % 数学命令
 \makeatletter
 \newcommand\dif{%  % 微分符号
-  \mathop{}\!%
-  \ifustc@math@style@TeX
-    d%
-  \else
-    \mathrm{d}%
-  \fi
+	\mathop{}\!%
+	\ifustc@math@style@TeX
+		d%
+	\else
+		\mathrm{d}%
+	\fi
 }
 \makeatother
 \newcommand\eu{{\symup{e}}}
