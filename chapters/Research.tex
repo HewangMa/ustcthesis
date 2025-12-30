@@ -8,6 +8,7 @@
 本章在后文进入评估系统设计和实现之前介绍一些相关技术原理，旨在建立基本的技术共识。
 
 \section{\tc~静态分析工具及其原理}
+\label{sec:\tc~静态分析工具及其原理}
 % 工具分类
 学术界和工业界在\tc~静态分析领域已做了大量的研究，
 开发出了众多静态分析工具，并且发展非常迅速。
@@ -227,8 +228,8 @@ CWE 共包含 944 种计算机软硬件相关缺陷，
 对于所有缺陷，CWE 从分类层级、基础类型、变量、作用链等多个维度进行组织；
 但针对\tc~相关的 CWE 缺陷，本文将这 118 种缺陷视为并列的缺陷集合进行分析。
 每个 CWE 缺陷均具有唯一编号，常见的\tc~缺陷包括
-CWE-126：\texttt{Buffer\_OverRead}（越界读），
-CWE-416：\texttt{Use\_After\_Free}（释放后使用）等。
+\texttt{CWE-126:Buffer\_OverRead}（越界读），
+\texttt{CWE-416:Use\_After\_Free}（释放后使用）等。
 
 CWE缺陷仅仅是缺陷分类，
 并不能精准的识别到细致的场景，评估粒度不够细。
@@ -267,9 +268,9 @@ JTS 在行业中取得了一定的成功，
 如果该 CWE 类型没有更细粒度的内容，则 Functional 类型为 basic。
 测试用例中使用的数据结构、特殊函数或特殊标记都有可能是 Functional 类型中的关键词。
 举例来说，
-CWE-667：\texttt{Improper\_Lockin} （加锁不当）这个缺陷，
+\texttt{CWE-667:Improper\_Lockin} （加锁不当）这个缺陷，
 仅有 basic 作为 Functional 类型;
-CWE-126: \texttt{Buffer\_OverRead} （越界读内存）这个缺陷，
+\texttt{CWE-126:Buffer\_OverRead} （越界读内存）这个缺陷，
 包括
 \texttt{char\_alloca\_loop}、
 \texttt{char\_alloca\_memcpy}、
