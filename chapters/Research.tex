@@ -236,6 +236,7 @@ IfStatement（If 语句）等，
 \end{enumerate}
 
 \subsection{测试集}
+\label{sec:测试集}
 
 测试集是用于评估静态分析工具的基础内容。
 % \textbf{场景}(Scene)描述了缺陷发生的实际条件和路径，一种缺陷可以关联多个场景。
@@ -307,7 +308,9 @@ Functional类型是JTS在同种CWE缺陷的基础上对缺陷类型的进一步�
 更针对静态分析的工具原理，能够对工具的能力进行更细致的划分。
 Flow 类型共有48种，用数字标记，
 01代表 baseline ，02至30代表控制流，31至84代表数据流，
-其中部分列举如表\ref{tab:Meaning_of_some_Flow_types}。
+其中部分列举如表\ref{tab:Meaning_of_some_Flow_types}
+JTS使用Functional类型和Flow类型作为文件名，
+用以组织测试用例。
 
 \begin{table}
 	\centering
