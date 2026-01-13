@@ -12,7 +12,7 @@
 \input{ustcsetup}
 \usepackage{listings}
 \usepackage{makecell}
-\usepackage{xcolor} % 你用了 lightgray，必须要
+\usepackage{xcolor}
 
 
 \begin{document}
@@ -21,7 +21,7 @@
 \copyrightpage
 
 \frontmatter
-\include{chapters/innovations}  % 博士学位论文的创新性说明
+% \include{chapters/innovations}  % 博士学位论文的创新性说明
 \include{chapters/abstract}
 \tableofcontents
 % \listoffigures
@@ -29,60 +29,20 @@
 \listoffiguresandtables
 % \include{chapters/notation}
 
-% 研究内容一定会带到的四个部分：
-% 静态分析工具特点
-% 静态分析工具评估
-% 测试集拓展
-% 代码生成
-
 \mainmatter
 
 \include{chapters/Introduction}
-% 绪论
-% 论文研究背景及意义
-% 静态分析工具评估的国内外研究现状
-% 本文主要工作内容
-% 本文工作的创新性及主要技术特色
-% 论文章节结构
-
 \include{chapters/Research}
 \include{chapters/EvaluateModel}
 \include{chapters/System}
-% 面向场景的评估系统概要设计	
-%   系统总体架构与评估流程
-%   场景资产数据库
-%   场景工厂
-%   场景资产管理
-%   评估指标计算
-
 \include{chapters/Implementation}
-% 面向场景的评估系统实现
-%   场景生成机制实现
-%   场景去重、分类与管理实现
-%   评估流程自动化实现
-%   系统可扩展性与替换性分析
-
 \include{chapters/Experiments}
-% 测试与验证
-%   实验设计与评估目标
-%   不同工具规则的表现分析
-%   与传统评估方式的对比
-%   威胁分析与讨论
-
-
 \include{chapters/Conclusion}
 % 结论与展望
 %   设计初衷与实现成果
 %   应用成效分析
 %   系统存在的不足
 %   展望与改进方向
-
-% \include{chapters/citations} % 引用
-
-
-% \include{chapters/background}
-% \include{chapters/floats}
-% \include{chapters/math}
 
 \bibliography{bib/ustc}  % 参考文献使用 BibTeX 编译
 % \printbibliography       % 参考文献使用 BibLaTeX 编译

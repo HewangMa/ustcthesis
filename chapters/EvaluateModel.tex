@@ -306,7 +306,7 @@
 	      即工具会将循环展开MLN层进行分析，
 	      如果程序在大于MLN层中有非平凡表现，
 	      则工具识别不到，
-	      如代码\ref{lst:非平凡循环}所示，
+	      比如代码\ref{lst:非平凡循环}中，
 	      MLN值大于5与小于5的工具对其分析结果是不同的。
 	      该参数是路径敏感的工具一定会有的，
 	      否则很容易遇到无限路径的情况，
@@ -324,7 +324,7 @@
 	      从而保证分析终止。
 	      典型的应用场景是单调的循环中，
 	      使用末端的循环子去概括程序状态，
-	      如代码\ref{lst:单调循环造成的路径增长}所示，
+	      比如代码\ref{lst:单调循环造成的路径增长}中，
 	      无 widen 能力的工具会面对路径、状态爆炸，
 	      而有 widen 能力的工具会使用i >= 0分析快速收敛。
 	      widen技术是目前静态分析工具在路径空间控制中比较前沿的技术，
@@ -332,28 +332,6 @@
 	      值得一提的是，
 	      路径数量控制并没有一个完美的能力刻度。
 \end{enumerate}
-
-\begin{lstlisting}[caption={非平凡循环}, label={lst:非平凡循环}]
-void func(int cond){
-	int x = 0;
-	while (cond){
-		x++;
-	}
-	if (x > 5){
-		bug(x);
-	}
-}
-\end{lstlisting}
-
-\begin{lstlisting}[caption={单调循环造成的路径增长}, label={lst:单调循环造成的路径增长}]
-void func(){
-	int i = 0;
-	while (i < 1000){
-		i++;
-	}
-	use(i);
-}
-\end{lstlisting}
 
 \subsection{约束精化能力}
 
@@ -364,18 +342,9 @@ void func(){
 在程序的路径中，
 有的路径是语法上可达，
 但是语义上不可达的。
-例如以下C代码\ref{lst:语法可达但语义不可达}，
 
-\begin{lstlisting}[caption={语法可达但语义不可达}, label={lst:语法可达但语义不可达}]
-void func(int x) {
-    if (x > 10) {
-        if (x < 5) {
-            bug();
-        }
-    }
-}
-\end{lstlisting}
-
+举例来说，
+代码\ref{lst:语法可达但语义不可达}中有不可达路径，
 在分析过程中要对这条路径进行处理时，
 如果有约束精化，
 则不必付出太大代价去计算，

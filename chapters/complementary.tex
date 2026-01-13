@@ -1,9 +1,8 @@
 % !TeX root = ../main.tex
 
-\chapter{补充材料}
+\chapter{代码}
 
-\begin{lstlisting}[caption={场景1实际代码}, label={lst:场景1实际代码}]
-
+\begin{lstlisting}[caption={非平凡循环}, label={lst:非平凡循环}]
 void func(int cond){
 	int x = 0;
 	while (cond){
@@ -13,5 +12,89 @@ void func(int cond){
 		bug(x);
 	}
 }
+\end{lstlisting}
+
+\begin{lstlisting}[caption={单调循环造成的路径增长}, label={lst:单调循环造成的路径增长}]
+void func(){
+	int i = 0;
+	while (i < 1000){
+		i++;
+	}
+	use(i);
+}
+\end{lstlisting}
+
+\begin{lstlisting}[caption={语法可达但语义不可达}, label={lst:语法可达但语义不可达}]
+void func(int x) {
+    if (x > 10) {
+        if (x < 5) {
+            bug();
+        }
+    }
+}
+\end{lstlisting}
+
+
+% todo!!!
+\begin{lstlisting}[caption={场景1实际代码}, label={lst:场景1实际代码}]
+void func(int cond){
+	int x = 0;
+	while (cond){
+		x++;
+	}
+	if (x > 5){
+		bug(x);
+	}
+}
+\end{lstlisting}
+
+
+\begin{lstlisting}[caption={场景生成提示词}, label={lst:场景生成提示词}]
+
+--角色和执行--
+你是一个对C/C++常见缺陷非常了解的专家，
+请你根据描述生成一段代码片段。
+
+--描述--
+<description></description>
+
+--要求--
+1、要提供good code和bad code。
+2、要能够通过编译，并准确表现描述中的缺陷内容。
+3、不要输出多余解释。
+4、只能有一个文件有main()函数。
+5、在发生错误的地方注释错误原因。
+6、根据具体场景判断文件是.c 还是.cpp
+7、单个文件的输出格式如下:
+<result>
+{
+"good_code":{
+"file.c":"good code content",
+}
+"bad_code":{
+"file.c":"bad code content",
+}
+}
+</result>
+
+8、多个文件的输出格式如下：
+<result>
+{
+"good_code":{
+"fileA.c":"good code content",
+"fileB.c":"good code content
+}
+"bad_code":{
+"fileA.c":"bad code content",
+"fileB.c":"bad code content
+}
+}
+</result>
+
+--参考生成结果--
+<reference></reference>
+
+--上一次的结果，有不符合编译等错误，请参考改正--
+<last_err></last_err>
 
 \end{lstlisting}
