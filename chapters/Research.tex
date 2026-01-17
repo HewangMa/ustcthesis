@@ -57,7 +57,7 @@ Clang-tidy等。
 
 在不同的检查过程中，静态分析工具都有着不同的方法。
 众多工具遵循相同或不同的原理，针对软件缺陷检测提出他们自己的检查方法，
-比如下列几个工具在上述维度中的位置如表\ref{tab:position_of_some_tools}所示，
+比如下列几个工具在上述维度中的位置如表\ref{tab:部分静态分析工具在四个维度中的位置}所示，
 其他工具总能在这四个维度上找到他们的位置。
 工具发展非常迅速，一次对现状的分类无法准确描述当前工具的多样。
 
@@ -65,7 +65,7 @@ Clang-tidy等。
 	\centering
 	\caption
 	{部分静态分析工具在四个维度中的位置}
-	\label{tab:position_of_some_tools}
+	\label{tab:部分静态分析工具在四个维度中的位置}
 	\begin{tabular}{ccccc}
 		\hline
 		工具         & 系统建模         & 属性描述       & 检测过程     & 结果验证   \\
@@ -308,7 +308,7 @@ Functional类型是JTS在同种CWE缺陷的基础上对缺陷类型的进一步�
 更针对静态分析的工具原理，能够对工具的能力进行更细致的划分。
 Flow 类型共有48种，用数字标记，
 01代表 baseline ，02至30代表控制流，31至84代表数据流，
-其中部分列举如表\ref{tab:Meaning_of_some_Flow_types}
+其中部分列举如表\ref{tab:部分Flow类型含义}
 JTS使用Functional类型和Flow类型作为文件名，
 用以组织测试用例。
 
@@ -316,7 +316,7 @@ JTS使用Functional类型和Flow类型作为文件名，
 	\centering
 	\caption
 	{部分Flow类型含义}
-	\label{tab:Meaning_of_some_Flow_types}
+	\label{tab:部分Flow类型含义}
 	\begin{tabular}{ccp{9cm}}
 		\hline
 		Flow 类型
@@ -356,13 +356,13 @@ JTS使用Functional类型和Flow类型作为文件名，
 
 静态分析工具的性能分为很多维度，用对应的指标来表征。
 在执行完检查之后，指标通过“有无告警”和“有无缺陷”矩阵数据
-表\ref{tab:statistics_of_analysis}来计算。
+表\ref{tab:静态分析检查得到的数据}来计算。
 
 \begin{table}
 	\centering
 	\caption
 	{静态分析检查得到的数据}
-	\label{tab:statistics_of_analysis}
+	\label{tab:静态分析检查得到的数据}
 	\begin{tabular}{p{2cm}p{5cm}p{5cm}}
 		\hline
 		    & 有告警                   & 无告警                   \\
@@ -442,8 +442,10 @@ Flow覆盖度(Flow Coverage)
 	\label{eq:Flow_Coverage}
 \end{equation}
 
-% 指标总结todo
-
+以上指标可以以百分比的形式，
+评估静态分析工具的宏观能力，
+但是这种百分比强依赖于测试集的分布，
+无法反映静态分析工具在场景粒度下的覆盖能力。
 其他评估指标还有检查速度、运行时算力消耗、检查功能等等，
 与静态分析工具的覆盖能力不直接相关。
 本文研究聚焦于评估静态分析工具正确检测软件缺陷的能力，
@@ -514,6 +516,8 @@ BM25检索速度不快，
 向量检索是一种基于语义相似度而非传统关键词匹配的搜索技术。
 通过深度学习模型将非结构化数据转化为一串数字数组（高维向量），
 这些数字捕捉了数据的内在语义特征。
+该向量计算模型（Embedding model）通常为预训练的语言模型，
+常见的embedding模型包括BGE、E5、M3E等。
 在检索时将查询请求也转化为向量，
 在多维向量空间中计算查询向量与已知数据向量之间的“距离”，
 常用距离包括余弦相似度、欧氏距离和内积等，

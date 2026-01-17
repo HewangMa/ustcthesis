@@ -3,6 +3,24 @@
 % Experiments
 % → 证明你的方法不是偶然有效
 \chapter{实验与分析}
+\label{ch:实验与分析}
+
+为了保证场景知识库服务的可重现性、
+环境隔离性与易运维性，
+本文采用Docker容器化方式在本地/服务器上部署Elasticsearch（以下简称ES）与Kibana。
+使用Docker的主要理由包括：
+消除宿主环境依赖差异，
+保证不同实验/评测环境的一致性；
+便于版本固定与回滚，
+利于科研复现；
+简化运维与资源隔离，
+便于在CI或实验平台中自动化启动与销毁实例；
+通过卷（volume）实现数据持久化，
+便于长期保存索引与检索结果，
+也就是容器和数据的隔离。
+Docker技术使用docker-compose部署多个容器，
+本文使用的docker-compose部署示例如配置\ref{lst:docker-compose}所示。
+
 
 \section{实验设计与评估目标}
 \section{不同工具规则的表现分析}

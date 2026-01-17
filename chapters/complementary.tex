@@ -1,6 +1,6 @@
 % !TeX root = ../main.tex
 
-\chapter{代码}
+\chapter{附录}
 
 \begin{lstlisting}[caption={非平凡循环}, label={lst:非平凡循环}]
 void func(int cond){
@@ -34,9 +34,8 @@ void func(int x) {
 }
 \end{lstlisting}
 
-
-% todo!!!
 \begin{lstlisting}[caption={场景1实际代码}, label={lst:场景1实际代码}]
+  todo
 void func(int cond){
 	int x = 0;
 	while (cond){
@@ -97,4 +96,60 @@ void func(int cond){
 --上一次的结果，有不符合编译等错误，请参考改正--
 <last_err></last_err>
 
+\end{lstlisting}
+
+\begin{lstlisting}[caption={docker-compose},label={lst:docker-compose}]
+	
+	version: "3.8"
+
+services:
+
+  elasticsearch:
+    image: docker.elastic.co/elasticsearch/elasticsearch:8.13.4
+    container_name: es
+    environment:
+      - discovery.type=single-node
+      - xpack.security.enabled=false
+      - ES_JAVA_OPTS=-Xms2g -Xmx2g
+    ports:
+      - "9200:9200"
+    volumes:
+      - es-data:/usr/share/elasticsearch/data
+
+  kibana:
+    image: docker.elastic.co/kibana/kibana:8.13.4
+    container_name: kibana
+    depends_on:
+      - elasticsearch
+    ports:
+      - "5601:5601"
+    environment:
+      - ELASTICSEARCH_HOSTS=http://elasticsearch:9200
+
+  check-chain:
+    container_name: check-chain
+    build:
+      context: ./check-chain
+      dockerfile: Dockerfile
+    volumes:
+      - ./check-chain:/app
+    ports:
+      - "8001:8001" 
+    restart: always
+
+  embedding:
+    build:
+      context: ./embed             
+      dockerfile: Dockerfile
+    container_name: embedding
+    ports:
+      - "8080:8080"
+    volumes:
+      - /home/hewangma/models/:/data
+    restart: unless-stopped
+
+volumes:
+  es-data:
+
+	
 \end{lstlisting}
