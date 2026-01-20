@@ -1,9 +1,97 @@
-% !TeX root = ../main.tex
-
-% Experiments
-% → 证明你的方法不是偶然有效
 \chapter{实验与分析}
 \label{ch:实验与分析}
+
+\section{实验目的和实验设计}
+
+本章围绕本文所提出的面向静态分析工具覆盖能力评估的系统，
+设计并开展一系列实验，
+旨在验证系统在场景生成效率与覆盖能力评估有效性两个核心方面的实际效果。
+实验设计紧密对应前文提出的系统设计目标与评估维度，
+在真实工具与真实规则条件下给出可解释的实验结论。
+
+\subsection{实验目的}
+具体而言，
+本章实验主要包括以下两个目标：
+
+\begin{enumerate}
+    \item \textbf{验证基于管理模块与知识库约束的场景生成机制在效率与质量上的有效性}。
+          具体来说，
+          相比于传统依赖LLM直接生成测试场景加上人工执行校验和审核的流程，
+          验证在此基础上进行检索、
+          校验的场景生成是否能够在保证语义正确性的前提下，
+          提高生成场景的人工审核通过率和效率。
+          也就是实验系统是否能够在工程实践中降低场景构建与维护的成本；
+    \item \textbf{验证所构造的场景空间在静态分析工具覆盖能力评估中的表达能力与解释能力}。
+          具体来说，
+          基于本文提出的覆盖能力评估维度体系，
+          对一个工具在不同维度下的能力边界进行系统性刻画，
+          并将实验结果与以往对该工具的经验性认识进行对比，
+          分析该评估方式在揭示工具能力盲区与能力分布方面的有效性。
+          也就是实验所构建的场景空间是否能够作为一种有效的载体，
+          用于表达和评估静态分析工具的覆盖能力边界。
+\end{enumerate}
+
+\subsection{实验设计}
+
+为保证实验结果的可比性与可解释性，
+整体实验流程如图\ref{fig:实验流程图}所示。
+
+\begin{figure}[h]
+    \centering
+    \includegraphics[width=\textwidth]{实验流程图.png}
+    \caption{实验流程图}
+    \label{fig:实验流程图}
+\end{figure}
+
+前置准备主要是为两个实验能够顺利进行而进行的启动工作，
+主要是根据JTS丰富场景知识库、
+构建规则映射和补充缺失场景，
+这里本文不再赘述。
+
+\subsubsection{实验一设计}
+
+本实验设计如表\ref{tab:实验一设计}所示。
+
+\begin{table}[h]
+    \centering
+    \caption{实验一设计}
+    \label{tab:实验一设计}
+    \begin{tabular}{|l|l|}
+        \hline
+        \textbf{实验目的} & 实验场景工厂在生成质量和效率上是否有优势    \\ \hline
+        \textbf{实验对比} & 纯LLM生成场景                \\ \hline
+        \textbf{实验对象} & 20组不同缺陷下的场景描述和需求        \\ \hline
+        \textbf{实验指标} & 人工审核通过率、人工修改一行以内通过率、总耗时 \\ \hline
+    \end{tabular}
+\end{table}
+
+实验目的
+场景生成效率实验
+该实验围绕“生成质量”与“人工校验成本”展开。
+实验中分别采用：
+基于本文系统的场景生成方式（结合知识库与生成约束）；
+不引入场景管理与约束条件的纯大语言模型生成方式；
+对同一类规则需求进行场景生成。
+生成结果统一交由人工进行语义与工程可用性审核，
+并以人工审核通过率作为主要评价指标，
+从而对比不同生成方式在实际工程使用中的效率差异。
+
+\subsubsection{实验二设计}
+
+
+构造的场景空间对 clang-tidy 工具评估的有效性实验
+该实验以 clang-tidy 为评估对象，
+选取其具有代表性的规则集合，
+基于本文提出的覆盖能力评估维度，
+对其在不同维度下的支持情况进行实验分析。
+实验结果不以单一数值指标为目标，
+而是通过场景触发结果与覆盖分布，
+刻画 clang-tidy 在不同能力维度上的优势与局限，
+并与传统基于文档或经验的工具认知进行对照分析。
+
+\section{实验环境}
+
+\subsection{实验环境}
 
 为了保证场景知识库服务的可重现性、
 环境隔离性与易运维性，
@@ -21,21 +109,34 @@
 Docker技术使用docker-compose部署多个容器，
 本文使用的docker-compose部署示例如配置\ref{lst:docker-compose}所示。
 
+\subsection{实验前置准备}
 
-\section{实验设计与评估目标}
-\section{不同工具规则的表现分析}
-\section{与传统评估方式的对比}
-\section{威胁分析与讨论}
+前置任务：
+使用管理模块对JTS中的测例进行分类，
+让知识库有基础的可参考知识，
 
-% \subsection{二级节标题}
+\section{实验一：基于场景知识库的场景生成质量和效率实验}
 
-% \subsubsection{三级节标题}
+做生成、校验实验，
+指标是人工审核通过率，
+对比是单纯的LLM生成。
 
-% \section{脚注}
+\section{实验二：基于场景空间对clang-tidy工具评估的有效性实验}
 
-% Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
-% incididunt ut labore et dolore magna aliqua.
-% \footnote{Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris
-% 	nisi ut aliquip ex ea commodo consequat.
-% 	Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore
-% 	eu fugiat nulla pariatur.}
+以clang-tidy为实验对象，
+研究它在我的评估维度下的能力。
+对比是以往对该工具的认识。
+主要是能力边界的认识。
+
+\section{实验分析与讨论}
+
+哪些维度最容易被覆盖？哪些最难？
+系统在哪些类型规则上效果最好？
+对路径敏感 / 约束复杂的规则，系统的局限在哪里？
+
+重点展示：
+覆盖维度数量
+覆盖关系数量
+场景规模变化
+人力成本变化
+管理复杂度变化
