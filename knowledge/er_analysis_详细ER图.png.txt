@@ -1,0 +1,105 @@
+============================================================
+DATABASE STRUCTURE ANALYSIS FROM ER DIAGRAM
+============================================================
+ER Diagram File: ustcthesis/figures/详细ER图.png
+
+DATABASE TABLES:
+------------------------------
+
+COLUMNS BY TABLE:
+------------------------------
+
+RULEINDEX RELATED INFORMATION:
+------------------------------
+1. rule_index
+
+PRIMARY KEYS:
+------------------------------
+1. PK
+2. PK
+
+FOREIGN KEYS:
+------------------------------
+
+TABLE RELATIONSHIPS:
+------------------------------
+
+EXTRACTED TEXT SAMPLE (First 300 characters):
+------------------------------
+scene_index  PK  scene _id: int  description : string description_vector: list[float] good: dict  bad: dict  weakness : int program_span: int semantic_complexity : int path_complexity : int path_depth : int reachability : int  PK  rule_index  rule_id: int  description : string  name: dict  version: ...
+
+============================================================
+FULL EXTRACTED TEXT:
+============================================================
+scene_index
+
+PK
+
+scene _id: int
+
+description : string
+description_vector: list[float]
+good: dict
+
+bad: dict
+
+weakness : int
+program_span: int
+semantic_complexity : int
+path_complexity : int
+path_depth : int
+reachability : int
+
+PK
+
+rule_index
+
+rule_id: int
+
+description : string
+
+name: dict
+
+version: string
+
+owing_tool: int
+should_cover_weakness: list[int]
+precision: float
+
+recall: float
+
+f1_score: float
+
+program_span: list[float]
+semantic_complexity : list[float]
+path_complexity : list[float]
+path_depth : list[float]
+reachability : bool
+
+weakness_index
+
+cwe: int
+
+description : string
+
+coverage_index
+
+run _id: int
+
+rule id: int
+
+scene id: int
+good_or_bad: bool
+reason: string
+timestamp: string
+tool_version: string
+rule version: string
+
+tool_index
+tool _id: int
+
+description : string
+name: dict
+tool_type: string
+version: string
+
